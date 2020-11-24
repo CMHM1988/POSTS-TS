@@ -1,4 +1,4 @@
-import { getAllPosts } from './../controllers/posts';
+import { getAllPosts } from "../controller/posts";
 // Importando herramientas de express.
 import { Router } from "express";
 

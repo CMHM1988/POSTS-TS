@@ -2,7 +2,7 @@
    "name": "server",
    "version": "1.0.0",
    "description": "",
-   "main": "server.js",
+   "main": "index.js",
    "scripts": {
       "watch": "tsc -w",
       "build": "tsc --project tsconfig.production.json",
@@ -20,6 +20,8 @@
       "helmet": "^4.2.0",
       "jsonwebtoken": "^8.5.1",
       "morgan": "^1.10.0",
+      "reflect-metadata": "^0.1.13",
+      "sqlite3": "^5.0.0",
       "typeorm": "^0.2.29"
    },
    "devDependencies": {

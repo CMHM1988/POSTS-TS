@@ -2,15 +2,13 @@ import { createConnection } from "typeorm";
 
 export const getConnection = async () => {
 	const connection = await createConnection({
-		type: "mongodb",
-		url: process.env.URL || "mongodb://localhost:27017/posts-ts",
+		type: "sqlite",
+      database: "database.sqlite",
 		synchronize: true,
 		logging: true,
-		entities: [
-			`
+		entities: [`
          ${__dirname}/../entity/*
-      `
-		]
+      `]
    });
    //
 	return connection;

@@ -1,4 +1,4 @@
-import { getAllAuthors } from './../controllers/author';
+import { getAllAuthors } from "../controller/author";
 // Importando herramientas de express.
 import { Router } from "express";
 
