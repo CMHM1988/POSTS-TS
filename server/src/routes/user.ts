@@ -1,4 +1,3 @@
-import { getConnection } from "./../db/index";
 import { Connection } from "typeorm";
 import { userController } from "../controller/user";
 // Importando herramientas de express.
@@ -8,16 +7,13 @@ export class userRouter {
 	public router: Router;
 	public userAPI: userController;
 	// Inicializando la instancia.
-	constructor() {
+	constructor(conn: Connection) {
 		//
 		this.router = Router();
 		//
-		getConnection().then(conn => {
-			//
-			this.userAPI = new userController(conn);
-			//
-			this.configureRoutes();
-		});
+		this.userAPI = new userController(conn);
+		//
+		this.configureRoutes();
 	}
 	//
 	configureRoutes = () => {

@@ -2,7 +2,6 @@ import { hash } from "bcrypt";
 import { User } from "../entity/User";
 import { Request, Response } from "express";
 import { Connection } from "typeorm";
-import { send } from "process";
 //
 export class userController {
 	//
