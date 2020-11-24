@@ -34,6 +34,8 @@ export class userRouter {
 	getRoutes = () => {
 		//
 		this.router.get("/users", this.userAPI.getAllUsers);
+		//
+		this.router.get("/users/:id", this.userAPI.getUserbyId);
 	};
 
 	//

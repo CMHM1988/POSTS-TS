@@ -1,6 +1,6 @@
 import { User } from "../entity/User";
 import { Request, Response } from "express";
-import { Connection } from "typeorm";
+import { Connection, getRepository } from "typeorm";
 //
 export class userController {
 	//
@@ -13,9 +13,19 @@ export class userController {
 		this.connection = conn;
 	}
 	//
-	getAllUsers = async (req: Request, res: Response): Promise<Array<IUser>> => {
+	getAllUsers = async (req: Request, res: Response): Promise<Response> => {
 		//
-		return await this.connection.manager.find(User);
+		const results = await getRepository(User).find();
+		//
+		return res.json(results);
+	};
+
+	//
+	getUserbyId = async (req: Request, res: Response): Promise<Response> => {
+		//
+		const results = await getRepository(User).findOne(req.params.id);
+		//
+		return res.json(results);
 	};
 }
 
