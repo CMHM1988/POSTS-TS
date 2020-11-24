@@ -39,11 +39,20 @@ export class userRouter {
 	};
 
 	//
-	postRoutes = () => {};
+	postRoutes = () => {
+		//
+		this.router.post("/users", this.userAPI.saveUser);
+	};
 
 	//
-	putRoutes = () => {};
+	putRoutes = () => {
+		//
+		this.router.put("/users/:id", this.userAPI.updateUser);
+	};
 
 	//
-	deleteRoutes = () => {};
+	deleteRoutes = () => {
+		//
+		this.router.delete("/users/:id", this.userAPI.deleteUser);
+	};
 }

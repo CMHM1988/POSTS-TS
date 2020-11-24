@@ -1,6 +1,8 @@
+import { hash } from "bcrypt";
 import { User } from "../entity/User";
 import { Request, Response } from "express";
-import { Connection, getRepository } from "typeorm";
+import { Connection } from "typeorm";
+import { send } from "process";
 //
 export class userController {
 	//
@@ -15,7 +17,7 @@ export class userController {
 	//
 	getAllUsers = async (req: Request, res: Response): Promise<Response> => {
 		//
-		const results = await getRepository(User).find();
+		const results = await this.connection.manager.find(User);
 		//
 		return res.json(results);
 	};
@@ -23,17 +25,58 @@ export class userController {
 	//
 	getUserbyId = async (req: Request, res: Response): Promise<Response> => {
 		//
-		const results = await getRepository(User).findOne(req.params.id);
+		const results = await this.getUser(req.params.id);
 		//
 		return res.json(results);
 	};
-}
 
-interface IUser {
-	id?: number;
-	name?: string;
-	lastName?: string;
-	email: string;
-	password: string;
-	isAdmin?: boolean;
+	//
+	saveUser = async (req: Request, res: Response): Promise<Response> => {
+		//
+		const password = await hash(req.body.password, this.SALT_ROUNDS);
+		// Asignamos la nueva contraseña cifrada.
+		req.body.password = password;
+		//
+      const results = await this.connection.manager.save(User, req.body);
+      //
+      return res.json(results);
+	};
+
+	//
+	updateUser = async (req: Request, res: Response): Promise<Response> => {
+		//
+		let currentUser = await this.getUser(req.params.id);
+		//
+		Object.keys(req.body).forEach(key => req.body[key] === undefined && delete req.body[key]);
+		// si se ha enviado nuevo password, debe cifrarse
+		if (req.body.hasOwnProperty("password")) {
+         // Cifrando password.
+			req.body.password = await hash(req.body.password, this.SALT_ROUNDS);
+		}
+      currentUser = { ...currentUser, ...req.body };
+      //
+      const results = await this.connection.manager.save(User, currentUser);
+      //
+      return res.json(results);
+	};
+
+	//
+	deleteUser = async (req: Request, res: Response): Promise<Response> => {
+		//
+		let currentUser = await this.getUser(req.params.id);
+		//
+      const results = await this.connection.manager.remove(User, currentUser);
+      //
+      return res.json(results);
+   };
+
+   /* Helpers --------------------------------------------------------------- */
+   getUser = async (id: String) => {
+      //
+      return await this.connection.manager.findOne(User, {
+			where: {
+				id
+			}
+		});
+   }
 }
