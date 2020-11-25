@@ -2,8 +2,8 @@ import React from "react";
 
 export const Login = () => {
    return (
-      <div>
+      <main>
          <span>Login</span>
-      </div>
+      </main>
    );
 };
