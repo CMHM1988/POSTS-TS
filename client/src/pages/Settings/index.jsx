@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Posts = () => {
+export const Settings = () => {
    return (
       <div>
-         <span>Posts</span>
+         <span>Settings</span>
       </div>
    );
 };
