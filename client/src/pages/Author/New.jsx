@@ -1,9 +1,9 @@
 import React from "react";
 
-export const EditPost = () => {
+export const NewAuthor = () => {
    return (
       <div>
-         <span>EditPost</span>
+         <span>NewAuthor</span>
       </div>
    );
 };
