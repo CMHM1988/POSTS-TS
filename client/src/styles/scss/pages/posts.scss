@@ -11,10 +11,18 @@
 
    .column {
       padding: 0;
-      margin: 0.75rem
+      margin: 0.75rem;
+      width: min-content;
    }
 
    .card {
       width: 250px;
+   }
+
+   @media screen and (min-width: 769px) {
+      .column.is-one-fifth {
+         flex: none;
+         width: min-content;
+      }
    }
 }

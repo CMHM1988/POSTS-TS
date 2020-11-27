@@ -2,7 +2,7 @@ import React from "react";
 
 export const Card = () => {
    return (
-      <div className="column is-flex is-justify-content-center">
+      <div className="column is-one-fifth">
          <div className="card">
             <div className="card-image">
                <figure className="image is-4by3">

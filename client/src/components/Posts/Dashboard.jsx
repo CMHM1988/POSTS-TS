@@ -6,28 +6,6 @@ export const Dashboard = () => {
       <div className="columns is-multiline">
          <Card />
          <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
-         <Card />
       </div>
    );
 };
