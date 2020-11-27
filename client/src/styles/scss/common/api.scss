@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* Bulma styles ------------------------------------------------------------- */
+@import "~bulma/sass/utilities/_all";
+@import "~bulma/sass/base/_all.sass";
+@import "~bulma/sass/elements/_all.sass";
+@import "~bulma/sass/form/_all.sass";
+@import "~bulma/sass/components/_all.sass";
+@import "~bulma/sass/grid/_all.sass";
+@import "~bulma/sass/helpers/_all.sass";
+@import "~bulma/sass/layout/_all.sass";
+
+/* Font aewsome styles ------------------------------------------------------ */
+@import "~font-awesome/scss/font-awesome.scss";
+
+/* -------------------------------------------------------------------------- */
+* {
+   margin: 0;
+   padding: 0;
+}
+
+/* Gral styles -------------------------------------------------------------- */
+.pointer {
+   cursor: pointer;
+}
+
+/* Grid  styles ------------------------------------------------------------- */
+.is-grid {
+   display: grid;
+}
+/* Flex styles -------------------------------------------------------------- */
+.is-flex-center {
+   @extend .is-justify-content-center;
+   @extend .is-align-items-center;
+}

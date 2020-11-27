@@ -1,0 +1,15 @@
+.app-login {
+   height: calc(100vh - 150px);
+   padding: 20px;
+   min-height: 500px;
+
+   .box {
+      border-radius: 50px;
+   }
+
+   @media screen and (min-width: 500px) {
+      .is-login-info {
+         width: 600px;
+      }
+   }
+}
