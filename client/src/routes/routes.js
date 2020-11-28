@@ -10,7 +10,7 @@ import { Settings } from "pages/Settings";
 //
 export default [
    {
-      path: "/",
+      path: "/posts",
       component: Posts
    },
    {

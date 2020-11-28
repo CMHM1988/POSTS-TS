@@ -4,8 +4,12 @@ import React from "react";
 export const Dashboard = () => {
    return (
       <div className="columns is-multiline">
-         <Card />
-         <Card />
+         <div className="column is-one-fifth">
+            <Card />
+         </div>
+         <div className="column is-one-fifth">
+            <Card />
+         </div>
       </div>
    );
 };
