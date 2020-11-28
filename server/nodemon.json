@@ -3,7 +3,7 @@
       "src/"
    ],
    "ignore": [
-      "node_module/",
+      "node_modules/",
       "**/*.spect.*"
    ],
    "exec": "ts-node src/index.ts",
